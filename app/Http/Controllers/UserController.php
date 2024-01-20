@@ -36,10 +36,10 @@ class UserController extends Controller
     function signup_valid(Request $request){
  
         $request->validate([
-            "name" => "required|string",
-            "surname" => "required|string",
-            "lastname" => "required|string",
-            "number" => "required|integer|min:11",
+            "name" => "required|string|regex:/^[а-яА-Я]+$/",
+            "surname" => "required|string|regex:/^[а-яА-Я]+$/",
+            "lastname" => "required|string|regex:/^[а-яА-Я]+$/",
+            "number" => "required",
             "email" => "required|unique:users",
             "password" => "required|min:6",
         ]);
